@@ -16,11 +16,13 @@
     "expo": "~53.0.20",
     "expo-status-bar": "~2.2.3",
     "nativewind": "^4.1.23",
+    "phosphor-react-native": "^3.0.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.79.5",
     "react-native-reanimated": "~3.17.5",
     "react-native-safe-area-context": "5.4.0",
+    "react-native-svg": "^15.12.1",
     "react-native-web": "^0.20.0"
   },
   "devDependencies": {

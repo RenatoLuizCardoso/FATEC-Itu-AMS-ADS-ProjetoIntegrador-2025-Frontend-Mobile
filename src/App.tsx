@@ -4,7 +4,7 @@ import { View } from 'react-native';
 
 export default function App() {
   return (
-    <View className="justify-center flex-1 items-center">
+    <View className="flex-1 items-center justify-center">
       <HelloWorld />
       <StatusBar style="auto" />
     </View>
