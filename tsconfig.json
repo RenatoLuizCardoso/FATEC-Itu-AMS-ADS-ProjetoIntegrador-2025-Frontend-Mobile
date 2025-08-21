@@ -3,6 +3,11 @@
   "compilerOptions": {
     "strict": true,
 
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+
     "baseUrl": "./src/",
     "paths": {
       "@components": ["components/"],
