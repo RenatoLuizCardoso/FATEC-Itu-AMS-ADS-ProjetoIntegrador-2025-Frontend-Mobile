@@ -4,6 +4,7 @@
   "main": "index.ts",
   "scripts": {
     "android": "expo run:android",
+    "commitlint": "commitlint --edit",
     "ios": "expo run:ios",
     "lint": "biome check --write",
     "lint-staged": "lint-staged",
@@ -30,8 +31,10 @@
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@biomejs/biome": "^2.2.0",
+    "@commitlint/cli": "^19.8.1",
     "@cspell/dict-pt-br": "^2.4.2",
     "@types/react": "~19.0.10",
+    "commitlint-config-gitmoji": "^2.3.1",
     "cspell": "^9.2.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
