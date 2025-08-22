@@ -42,7 +42,7 @@
     "typescript": "~5.8.3"
   },
   "lint-staged": {
-    "!(pnpm-lock.yaml)": "cspell",
+    "!(pnpm-lock.yaml|.vscode)": "cspell",
     "*.{tsx,json}": "pnpm lint"
   },
   "packageManager": "pnpm@10.15.0",

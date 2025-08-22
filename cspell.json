@@ -4,7 +4,7 @@
   "language": "en, pt, pt_BR, lorem",
   "dictionaries": ["git", "node", "npm", "typescript", "pi-mobile"],
   "import": ["@cspell/dict-pt-br/cspell-ext.json"],
-  "ignorePaths": ["pnpm-lock.yaml"],
+  "ignorePaths": ["pnpm-lock.yaml", "android", "ios", ".vscode"],
   "dictionaryDefinitions": [
     {
       "name": "pi-mobile",
