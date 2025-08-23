@@ -12,6 +12,7 @@
     "prebuild": "expo prebuild",
     "prepare": "husky || true",
     "spell": "cspell .",
+    "spell:ci": "cspell --no-progress .",
     "start": "expo start",
     "web": "expo start --web"
   },
@@ -45,6 +46,9 @@
   "lint-staged": {
     "!(pnpm-lock.yaml|.vscode)": "cspell",
     "*.{tsx,json}": "pnpm lint"
+  },
+  "engines": {
+    "node": "22.18.0"
   },
   "packageManager": "pnpm@10.15.0",
   "private": true
