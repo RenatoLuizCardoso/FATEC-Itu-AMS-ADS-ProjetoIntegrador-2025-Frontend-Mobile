@@ -1,21 +1,19 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { HelloWorld } from '@screens';
-import { PaperProvider } from 'react-native-paper';
+import { HelloWorld, Login } from '@screens';
 
 const Stack = createNativeStackNavigator();
 
 export function App() {
   return (
-    <PaperProvider>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="HelloWorld"
-          screenOptions={{ headerShown: false }}
-        >
-          <Stack.Screen name="HelloWorld" component={HelloWorld} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </PaperProvider>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Login"
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="HelloWorld" component={HelloWorld} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }

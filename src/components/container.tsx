@@ -6,7 +6,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 export function Container({ children }: { children: ReactNode }) {
   return (
     <SafeAreaProvider style={style}>
-      <SafeAreaView>
+      <SafeAreaView style={style}>
         {children}
         <StatusBar style="auto" />
       </SafeAreaView>
