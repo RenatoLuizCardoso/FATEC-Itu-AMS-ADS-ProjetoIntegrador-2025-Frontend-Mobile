@@ -1,0 +1,31 @@
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { Appbar } from 'react-native-paper';
+import type { RootStackParamList } from '../routes';
+
+type NavProps = NativeStackNavigationProp<RootStackParamList>;
+
+export function Navbar({ title }: { title: string }) {
+  const navigation = useNavigation<NavProps>();
+
+  return (
+    <Appbar.Header>
+      <Appbar.Action
+        size={32}
+        color="#6B031D"
+        icon="arrow-left"
+        onPress={() => navigation.goBack()}
+      />
+      <Appbar.Content
+        title={title}
+        titleStyle={{ textAlign: 'center', fontWeight: 'bold', fontSize: 24 }}
+      />
+      <Appbar.Action
+        size={32}
+        color="#6B031D"
+        icon="cart-outline"
+        onPress={() => navigation.navigate('HelloWorld')}
+      />
+    </Appbar.Header>
+  );
+}

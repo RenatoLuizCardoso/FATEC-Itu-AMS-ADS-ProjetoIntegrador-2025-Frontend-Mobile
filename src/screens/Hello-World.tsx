@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export function HelloWorld() {
   return (
-    <Container>
+    <Container showNav>
       <View style={styles.view}>
         <Icon name="mail" style={styles.text} />
         <Text style={styles.text}>Hello World</Text>
