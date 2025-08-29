@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "start": "expo start",
     "android": "expo start --android",
+    "expo": "expo",
     "ios": "expo start --ios",
+    "prebuild": "expo prebuild",
+    "start": "expo start",
     "web": "expo start --web"
   },
   "dependencies": {
