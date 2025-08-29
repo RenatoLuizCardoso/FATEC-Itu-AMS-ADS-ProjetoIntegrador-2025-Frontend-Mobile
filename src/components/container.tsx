@@ -12,7 +12,7 @@ type ContainerProps = {
 export function Container({ children, showNav }: ContainerProps) {
   return (
     <SafeAreaProvider style={style}>
-      <SafeAreaView>
+      <SafeAreaView style={style}>
         {showNav && <Navbar title="Comanda 40" />}
         {children}
         <StatusBar style="auto" />

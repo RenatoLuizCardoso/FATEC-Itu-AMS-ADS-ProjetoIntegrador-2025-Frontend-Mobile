@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Bunda-PI",
-    "slug": "Bunda-PI",
+    "name": "Mobile-PI",
+    "slug": "mobile-pi",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,7 +14,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.BundaPI"
+      "bundleIdentifier": "com.anonymous.MobilePI"
     },
     "android": {
       "adaptiveIcon": {
@@ -22,7 +22,7 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.BundaPI"
+      "package": "com.anonymous.MobilePI"
     },
     "web": {
       "favicon": "./assets/favicon.png"
