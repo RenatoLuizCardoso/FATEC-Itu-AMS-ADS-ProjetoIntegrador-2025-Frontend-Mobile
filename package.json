@@ -1,5 +1,5 @@
 {
-  "name": "bunda-pi",
+  "name": "mobile-pi",
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
@@ -27,17 +27,24 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~5.0.4",
+    "@react-navigation/elements": "^2.6.3",
+    "@react-navigation/native": "^7.1.17",
+    "@react-navigation/native-stack": "^7.3.25",
     "expo": "~53.0.22",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.79.6",
+    "react-native-paper": "^5.14.5",
+    "react-native-safe-area-context": "^5.4.0",
+    "react-native-screens": "~4.11.1",
     "react-native-web": "^0.20.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@biomejs/biome": "^2.2.2",
     "@commitlint/cli": "^19.8.1",
+    "@cspell/dict-pt-br": "^2.4.2",
     "@types/react": "~19.0.10",
     "commitlint-config-gitmoji": "^2.3.1",
     "cspell": "^9.2.0",
