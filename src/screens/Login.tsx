@@ -1,48 +1,24 @@
-import { Container } from '@components';
+import { Button, Container, Input } from '@components';
+import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Button, TextInput } from 'react-native-paper';
-
-const Input = ({ label }: { label: string }) => {
-  return (
-    <TextInput
-      mode="outlined"
-      label={label}
-      outlineStyle={{ borderRadius: 12 }}
-      style={{ width: '80%' }}
-      activeOutlineColor={styles.title.color}
-      outlineColor={styles.subTitle.color}
-    />
-  );
-};
 
 export function Login() {
+  const [password, setPassword] = useState('');
+  const [user, setUser] = useState('');
+
   return (
     <Container>
       <View style={styles.view}>
-        <View style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+        <View style={styles.subView}>
           <Text style={styles.title}>Seja Bem Vindo!</Text>
           <Text style={styles.subTitle}>Efetue seu login</Text>
         </View>
 
-        <View
-          style={{
-            display: 'flex',
-            gap: 24,
-            alignItems: 'center',
-            width: '100%',
-          }}
-        >
-          <Input label="Usuário" />
-          <Input label="Senha" />
+        <View style={[styles.subView, { gap: 24 }]}>
+          <Input value={user} onChange={() => setUser} label="Usuário" />
+          <Input value={password} onChange={() => setPassword} label="Senha" />
 
-          <Button
-            mode="contained"
-            buttonColor={styles.title.color}
-            labelStyle={{ fontSize: 20 }}
-            style={{ borderRadius: 12, width: '80%' }}
-          >
-            Acessar
-          </Button>
+          <Button onPress={() => {}}>Acessar</Button>
         </View>
       </View>
     </Container>
@@ -63,6 +39,11 @@ const styles = StyleSheet.create({
     gap: 48,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  subView: {
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
   },
   button: {
     backgroundColor: '#6B031D',
