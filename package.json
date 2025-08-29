@@ -3,11 +3,26 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "android": "expo start --android",
+    "android": "expo run:android",
+    "biome": "biome",
+    "commitlint": "commitlint --edit",
+    "cspell": "cspell",
     "expo": "expo",
-    "ios": "expo start --ios",
+    "export": "expo export",
+    "ios": "expo run:ios",
+    "lint": "biome check",
+    "lint-staged": "lint-staged",
+    "lint:ci": "biome ci",
+    "lint:write": "biome check --write",
     "prebuild": "expo prebuild",
+    "prepare": "husky || true",
+    "sort-file": "node scripts/sort-file.js",
+    "normalize-file": "node scripts/normalize-file.js",
+    "spellcheck": "cspell lint --unique",
+    "spellcheck:all": "cspell lint --unique .",
+    "spellcheck:ci": "cspell lint --no-cache --no-progress .",
     "start": "expo start",
+    "typecheck": "tsc",
     "web": "expo start --web"
   },
   "dependencies": {
@@ -21,8 +36,26 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@biomejs/biome": "^2.2.2",
+    "@commitlint/cli": "^19.8.1",
     "@types/react": "~19.0.10",
+    "commitlint-config-gitmoji": "^2.3.1",
+    "cspell": "^9.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
     "typescript": "~5.8.3"
   },
-  "private": true
+  "lint-staged": {
+    "!(pnpm-lock.yaml|.vscode/*)": "pnpm spellcheck",
+    "dictionary.txt": [
+      "pnpm normalize-file",
+      "pnpm sort-file"
+    ],
+    "*.{tsx,ts,json}": "pnpm lint"
+  },
+  "private": true,
+  "engines": {
+    "node": "22"
+  },
+  "packageManager": "pnpm@10.15.0"
 }

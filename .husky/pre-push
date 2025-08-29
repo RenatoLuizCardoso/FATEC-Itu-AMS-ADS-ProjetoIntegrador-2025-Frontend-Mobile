@@ -1,0 +1,5 @@
+pnpm lint:ci
+pnpm typecheck
+pnpm spellcheck:ci
+pnpm prebuild
+pnpm export

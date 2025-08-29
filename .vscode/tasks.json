@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "lint",
+      "icon": { "id": "flame" },
+      "problemMatcher": [],
+      "detail": "biome check --write",
+      "options": {
+        "statusbar": {
+          "label": ""
+        }
+      }
+    },
+    {
+      "type": "npm",
+      "script": "spellcheck:all",
+      "icon": { "id": "flame" },
+      "problemMatcher": [],
+      "detail": "cspell lint --unique .",
+      "options": {
+        "statusbar": {
+          "label": ""
+        }
+      }
+    },
+    {
+      "type": "npm",
+      "script": "start",
+      "icon": { "id": "run" },
+      "problemMatcher": [],
+      "detail": "expo start",
+      "options": {
+        "statusbar": {
+          "label": ""
+        }
+      }
+    }
+  ]
+}

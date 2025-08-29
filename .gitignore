@@ -35,3 +35,10 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# artifacts
+android
+ios
+
+# cspell
+.cspellcache

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en, pt, pt_BR, lorem",
+  "dictionaries": ["git", "node", "npm", "typescript", "pi-mobile"],
+  "import": ["@cspell/dict-pt-br/cspell-ext.json"],
+  "ignorePaths": ["pnpm-lock.yaml"],
+  "cache": { "useCache": true, "cacheStrategy": "metadata" },
+  "useGitignore": true,
+  "dictionaryDefinitions": [
+    {
+      "name": "pi-mobile",
+      "addWords": true,
+      "path": "./dictionary.txt"
+    }
+  ]
+}
