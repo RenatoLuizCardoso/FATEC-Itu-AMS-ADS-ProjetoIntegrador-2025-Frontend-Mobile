@@ -26,7 +26,7 @@ export function CategorySelector() {
     });
   };
   return (
-    <View>
+    <View style={{ gap: 8, marginBottom: 16 }}>
       <SearchInput value={search} onChangeText={setSearch} />
       <FlatList
         ref={flatlistRef}

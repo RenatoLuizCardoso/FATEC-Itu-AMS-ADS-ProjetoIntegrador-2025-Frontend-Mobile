@@ -15,7 +15,9 @@
       "@screens": ["screens/"],
       "@screens/*": ["screens/*"],
       "@data": ["data/"],
-      "@data/*": ["data/*"]
+      "@data/*": ["data/*"],
+      "@utils": ["utils/"],
+      "@utils/*": ["utils/*"]
     }
   }
 }
