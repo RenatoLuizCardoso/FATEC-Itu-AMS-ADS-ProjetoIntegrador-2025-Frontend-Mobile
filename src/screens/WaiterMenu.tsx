@@ -1,27 +1,12 @@
-import { CategorySelector, Container, MenuItemCard } from '@components';
-import { type MenuItem, menuItems } from '@data';
-import React from 'react';
-import { Alert, FlatList, StyleSheet, View } from 'react-native';
-
-const handleItemPress = (item: MenuItem) => {
-  Alert.alert('Item Clicado', `Você selecionou: ${item.name}`);
-};
+import { CategorySelector, Container, ListCardMenu } from '@components';
+import { StyleSheet, View } from 'react-native';
 
 export function WaiterMenu() {
   return (
     <Container>
       <View style={styles.mainContainer}>
         <CategorySelector />
-        <View style={styles.listContainer}>
-          <FlatList
-            data={menuItems}
-            renderItem={({ item }) => (
-              <MenuItemCard item={item} onPress={() => handleItemPress(item)} />
-            )}
-            keyExtractor={(item) => item.id.toString()}
-            contentContainerStyle={styles.listContent}
-          />
-        </View>
+        <ListCardMenu />
       </View>
     </Container>
   );
