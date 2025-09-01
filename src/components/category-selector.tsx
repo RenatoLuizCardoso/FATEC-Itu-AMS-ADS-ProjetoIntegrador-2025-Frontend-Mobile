@@ -8,16 +8,20 @@ interface Category {
   name: string;
 }
 
-export function CategorySelector() {
-  const [search, setSearch] = React.useState('');
-  const [selectedCategory, setSelectedCategory] = React.useState<string | null>(
-    categories[0]?.id || null,
-  );
+interface CategorySelectorProps {
+  selectedCategory: string | null;
+  onCategoryPress: (categoryId: string, index: number) => void;
+}
 
+export function CategorySelector({
+  selectedCategory,
+  onCategoryPress,
+}: CategorySelectorProps) {
+  const [search, setSearch] = React.useState('');
   const flatlistRef = React.useRef<FlatList<Category>>(null);
 
   const handlePress = (categoryId: string, index: number) => {
-    setSelectedCategory(categoryId);
+    onCategoryPress(categoryId, index);
 
     flatlistRef.current?.scrollToIndex({
       index,
@@ -25,8 +29,9 @@ export function CategorySelector() {
       viewPosition: 0.5,
     });
   };
+
   return (
-    <View style={{ gap: 8, marginBottom: 16 }}>
+    <View>
       <SearchInput value={search} onChangeText={setSearch} />
       <FlatList
         ref={flatlistRef}
