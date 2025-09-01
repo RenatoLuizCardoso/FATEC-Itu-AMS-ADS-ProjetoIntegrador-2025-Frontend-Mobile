@@ -2,6 +2,7 @@ import { CategoryButton, SearchInput } from '@components';
 import { categories } from '@data';
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
+import { IconButton } from 'react-native-paper';
 
 interface Category {
   id: string;
@@ -22,7 +23,6 @@ export function CategorySelector({
 
   const handlePress = (categoryId: string, index: number) => {
     onCategoryPress(categoryId, index);
-
     flatlistRef.current?.scrollToIndex({
       index,
       animated: true,
@@ -30,28 +30,53 @@ export function CategorySelector({
     });
   };
 
+  const scrollLeft = () => {
+    flatlistRef.current?.scrollToOffset({
+      offset: 0,
+      animated: true,
+    });
+  };
+
+  const scrollRight = () => {
+    flatlistRef.current?.scrollToEnd({ animated: true });
+  };
+
   return (
     <View style={styles.selectorContainer}>
       <SearchInput value={search} onChangeText={setSearch} />
-      <FlatList
-        ref={flatlistRef}
-        data={categories}
-        keyExtractor={(item) => item.id}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{
-          paddingVertical: 8,
-          gap: 2,
-        }}
-        renderItem={({ item, index }) => (
-          <CategoryButton
-            isSelected={selectedCategory === item.id}
-            onPress={() => handlePress(item.id, index)}
-          >
-            {item.name}
-          </CategoryButton>
-        )}
-      />
+
+      <View style={styles.row}>
+        <IconButton
+          icon="chevron-left"
+          size={20}
+          onPress={scrollLeft}
+          disabled={selectedCategory === categories[0]?.id}
+        />
+
+        <FlatList
+          ref={flatlistRef}
+          data={categories}
+          keyExtractor={(item) => item.id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.flatListContent}
+          renderItem={({ item, index }) => (
+            <CategoryButton
+              isSelected={selectedCategory === item.id}
+              onPress={() => handlePress(item.id, index)}
+            >
+              {item.name}
+            </CategoryButton>
+          )}
+        />
+
+        <IconButton
+          icon="chevron-right"
+          size={20}
+          onPress={scrollRight}
+          disabled={selectedCategory === categories[categories.length - 1]?.id}
+        />
+      </View>
     </View>
   );
 }
@@ -68,5 +93,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 6,
     elevation: 5,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  flatListContent: {
+    paddingVertical: 4,
+    gap: 2,
   },
 });

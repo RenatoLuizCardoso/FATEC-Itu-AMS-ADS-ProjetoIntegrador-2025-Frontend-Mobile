@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     height: 50,
     marginVertical: 8,
+    marginHorizontal: 16,
     elevation: 3,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
