@@ -20,7 +20,7 @@ export function WaiterMenu() {
   };
 
   return (
-    <Container>
+    <Container showNav>
       <CategorySelector
         selectedCategory={selectedCategory}
         onCategoryPress={handleCategoryPress}
