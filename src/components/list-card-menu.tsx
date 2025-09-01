@@ -1,16 +1,16 @@
 import { MenuItemCard } from '@components';
 import { categories, type MenuItem, menuItems } from '@data';
-import React from 'react';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
 
 const handleItemPress = (item: MenuItem) => {
   Alert.alert('Item Clicado', `Você selecionou: ${item.name}`);
 };
 
-export const ListCardMenu = React.forwardRef((_, ref) => {
-  const flatListRef = React.useRef<FlatList>(null);
+export const ListCardMenu = forwardRef((_, ref) => {
+  const flatListRef = useRef<FlatList>(null);
 
-  React.useImperativeHandle(ref, () => ({
+  useImperativeHandle(ref, () => ({
     scrollToIndex: (index: number) => {
       flatListRef.current?.scrollToIndex({
         index,
@@ -74,16 +74,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   categoryBlock: {
-    gap: 12,
+    gap: 16,
     marginBottom: 24,
   },
   categoryTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginTop: 12,
   },
   subCategoryBlock: {
-    gap: 12,
+    gap: 8,
   },
   subCategoryTitle: {
     fontSize: 16,

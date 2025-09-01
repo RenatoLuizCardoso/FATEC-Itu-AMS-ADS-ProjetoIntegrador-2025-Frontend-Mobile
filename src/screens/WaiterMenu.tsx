@@ -35,7 +35,7 @@ export function WaiterMenu() {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    paddingHorizontal: 32,
+    marginHorizontal: 16,
   },
   listContainer: {
     flex: 1,

@@ -12,6 +12,7 @@ chimichurri
 confitado
 confitados
 crocância
+ellipsize
 entrecôte
 flatlist
 gitmoji
@@ -20,7 +21,6 @@ mobileprovision
 panna
 parmesao
 portobello
-rucula
 rucula
 taiti
 tartaro

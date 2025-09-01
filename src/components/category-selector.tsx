@@ -83,23 +83,14 @@ export function CategorySelector({
 
 const styles = StyleSheet.create({
   selectorContainer: {
-    paddingHorizontal: 16,
-    paddingTop: 4,
-    paddingBottom: 4,
+    gap: 8,
     zIndex: 10,
-    borderBottomEndRadius: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
-    elevation: 5,
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   flatListContent: {
-    paddingVertical: 4,
     gap: 2,
   },
 });

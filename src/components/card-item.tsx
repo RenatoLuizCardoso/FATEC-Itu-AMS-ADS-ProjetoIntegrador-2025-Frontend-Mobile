@@ -15,7 +15,13 @@ export function MenuItemCard({ item, onPress }: MenuItemCardProps) {
       <View style={styles.infoContainer}>
         <View style={styles.textGap}>
           <Text style={styles.title}>{item.name}</Text>
-          <Text style={styles.description}>{item.shortDescription}</Text>
+          <Text
+            numberOfLines={1}
+            ellipsizeMode="tail"
+            style={styles.description}
+          >
+            {item.shortDescription}
+          </Text>
         </View>
         <View style={styles.bottomRow}>
           <Text style={styles.price}>{formatCurrency(item.price)}</Text>
@@ -29,11 +35,10 @@ export function MenuItemCard({ item, onPress }: MenuItemCardProps) {
 const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
-    height: 120,
+    height: 100,
     width: '100%',
     borderRadius: 16,
     backgroundColor: 'white',
-
     borderColor: '#595960',
     overflow: 'hidden',
     elevation: 3,
@@ -43,23 +48,22 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
   image: {
-    width: '40%',
+    width: '30%',
     height: '100%',
     resizeMode: 'cover',
   },
   infoContainer: {
-    width: '60%',
+    width: '70%',
+    justifyContent: 'center',
     paddingVertical: 16,
     paddingHorizontal: 10,
-    justifyContent: 'space-between',
   },
   textGap: {
-    flex: 1,
-    gap: 4,
+    marginBottom: 8,
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 16,
     color: '#6B031D',
   },
   description: {
@@ -72,7 +76,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   price: {
-    fontSize: 18,
+    fontSize: 16,
+    fontWeight: 'bold',
     color: '#000',
   },
 });

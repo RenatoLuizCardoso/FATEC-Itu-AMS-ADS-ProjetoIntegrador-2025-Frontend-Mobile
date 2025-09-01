@@ -9,19 +9,17 @@ export function Navbar({ title }: { title: string }) {
   const navigation = useNavigation<NavProps>();
 
   return (
-    <Appbar.Header>
+    <Appbar.Header
+      mode="center-aligned"
+      style={{ backgroundColor: 'white', height: 56 }}
+    >
       <Appbar.Action
-        size={32}
         color="#6B031D"
         icon="arrow-left"
         onPress={() => navigation.goBack()}
       />
-      <Appbar.Content
-        title={title}
-        titleStyle={{ textAlign: 'center', fontWeight: 'bold', fontSize: 24 }}
-      />
+      <Appbar.Content title={title} />
       <Appbar.Action
-        size={32}
         color="#6B031D"
         icon="cart-outline"
         onPress={() => navigation.navigate('HelloWorld')}

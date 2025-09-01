@@ -23,11 +23,9 @@ export function SearchInput({ value, onChangeText }: SearchInputProps) {
 const styles = StyleSheet.create({
   searchbar: {
     borderRadius: 16,
-    backgroundColor: 'white',
+    backgroundColor: '#f0f0f068',
     borderColor: '#595960',
-    borderWidth: 1,
-    height: 50,
-    marginVertical: 8,
+    height: 40,
     marginHorizontal: 16,
     elevation: 3,
     shadowColor: '#000',
@@ -37,7 +35,7 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     color: '#000',
-    fontSize: 16,
+    fontSize: 12,
     alignSelf: 'center',
   },
 });
