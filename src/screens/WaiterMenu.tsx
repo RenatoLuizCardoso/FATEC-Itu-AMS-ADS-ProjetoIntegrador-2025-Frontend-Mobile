@@ -21,11 +21,11 @@ export function WaiterMenu() {
 
   return (
     <Container>
+      <CategorySelector
+        selectedCategory={selectedCategory}
+        onCategoryPress={handleCategoryPress}
+      />
       <View style={styles.mainContainer}>
-        <CategorySelector
-          selectedCategory={selectedCategory}
-          onCategoryPress={handleCategoryPress}
-        />
         <ListCardMenu ref={menuListRef} />
       </View>
     </Container>
@@ -35,7 +35,6 @@ export function WaiterMenu() {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    paddingVertical: 16,
     paddingHorizontal: 32,
   },
   listContainer: {

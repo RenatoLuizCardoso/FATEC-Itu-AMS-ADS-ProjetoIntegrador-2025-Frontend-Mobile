@@ -80,10 +80,10 @@ const styles = StyleSheet.create({
   categoryTitle: {
     fontSize: 20,
     fontWeight: 'bold',
+    marginTop: 12,
   },
   subCategoryBlock: {
     gap: 12,
-    marginBottom: 12,
   },
   subCategoryTitle: {
     fontSize: 16,

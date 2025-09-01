@@ -1,6 +1,5 @@
 import type { MenuItem } from '@data';
 import { formatCurrency } from '@utils/format';
-import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Counter } from './counter';
 

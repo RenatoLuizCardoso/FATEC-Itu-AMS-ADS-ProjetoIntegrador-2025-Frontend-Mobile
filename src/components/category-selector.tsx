@@ -1,7 +1,7 @@
 import { CategoryButton, SearchInput } from '@components';
 import { categories } from '@data';
 import React from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 
 interface Category {
   id: string;
@@ -31,7 +31,7 @@ export function CategorySelector({
   };
 
   return (
-    <View>
+    <View style={styles.selectorContainer}>
       <SearchInput value={search} onChangeText={setSearch} />
       <FlatList
         ref={flatlistRef}
@@ -55,3 +55,18 @@ export function CategorySelector({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  selectorContainer: {
+    paddingHorizontal: 16,
+    paddingTop: 4,
+    paddingBottom: 4,
+    zIndex: 10,
+    borderBottomEndRadius: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 5,
+  },
+});
