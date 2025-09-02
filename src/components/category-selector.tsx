@@ -1,6 +1,6 @@
 import { CategoryButton, SearchInput } from '@components';
 import { categories } from '@data';
-import React from 'react';
+import { useRef } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { IconButton } from 'react-native-paper';
 
@@ -11,15 +11,18 @@ interface Category {
 
 interface CategorySelectorProps {
   selectedCategory: string | null;
+  searchValue: string;
+  onSearch: (value: string) => void;
   onCategoryPress: (categoryId: string, index: number) => void;
 }
 
 export function CategorySelector({
   selectedCategory,
+  searchValue,
+  onSearch,
   onCategoryPress,
 }: CategorySelectorProps) {
-  const [search, setSearch] = React.useState('');
-  const flatlistRef = React.useRef<FlatList<Category>>(null);
+  const flatlistRef = useRef<FlatList<Category>>(null);
 
   const handlePress = (categoryId: string, index: number) => {
     onCategoryPress(categoryId, index);
@@ -43,7 +46,7 @@ export function CategorySelector({
 
   return (
     <View style={styles.selectorContainer}>
-      <SearchInput value={search} onChangeText={setSearch} />
+      <SearchInput value={searchValue} onChangeText={onSearch} />
 
       <View style={styles.row}>
         <IconButton

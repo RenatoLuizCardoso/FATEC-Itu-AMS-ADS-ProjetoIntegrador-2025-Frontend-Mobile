@@ -11,6 +11,7 @@ chantilly
 chimichurri
 confitado
 confitados
+couting
 crocância
 ellipsize
 entrecôte

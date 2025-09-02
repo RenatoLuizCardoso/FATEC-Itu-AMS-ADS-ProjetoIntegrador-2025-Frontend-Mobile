@@ -1,17 +1,42 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-paper';
 
 export function Counter({ size = 'small' }: { size?: 'small' | 'medium' }) {
   const [value, setValue] = useState(0);
 
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const startCouting = (type: 'plus' | 'minus') => {
+    if (type === 'plus') {
+      setValue((prev) => prev + 1);
+    } else {
+      setValue((prev) => Math.max(prev - 1, 0));
+    }
+
+    intervalRef.current = setInterval(() => {
+      if (type === 'plus') {
+        setValue((prev) => prev + 1);
+      } else {
+        setValue((prev) => Math.max(prev - 1, 0));
+      }
+    }, 150);
+  };
+
+  const stopCounting = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
   const styles = size === 'small' ? smallStyles : mediumStyles;
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={[styles.button, styles.minus]}
-        onPress={() => setValue((prev) => Math.max(prev - 1, 0))}
+        onPressIn={() => startCouting('minus')}
+        onPressOut={stopCounting}
       >
         <Icon source="minus" size={14} color="white" />
       </TouchableOpacity>
@@ -22,7 +47,8 @@ export function Counter({ size = 'small' }: { size?: 'small' | 'medium' }) {
 
       <TouchableOpacity
         style={[styles.button, styles.plus]}
-        onPress={() => setValue((prev) => prev + 1)}
+        onPressIn={() => startCouting('plus')}
+        onPressOut={stopCounting}
       >
         <Icon source="plus" size={14} color="white" />
       </TouchableOpacity>
@@ -36,8 +62,8 @@ const smallStyles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    width: 22,
-    height: 22,
+    width: 25,
+    height: 25,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 6,
@@ -54,7 +80,7 @@ const smallStyles = StyleSheet.create({
   },
   valueBox: {
     width: 36,
-    height: 22,
+    height: 25,
     borderColor: '#6B031D',
     borderWidth: 1.5,
     alignItems: 'center',
