@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     color: '#6B031D',
   },
   description: {
-    fontSize: 12,
+    fontSize: 10,
     color: '#6B7280',
   },
   bottomRow: {
