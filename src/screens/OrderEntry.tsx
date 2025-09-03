@@ -12,10 +12,10 @@ export function OrderEntry() {
       <Container>
         <View style={styles.view}>
           <View style={styles.subView}>
-            <Text style={styles.title}>Começar o atendimento</Text>
+            <Text style={styles.title}>Começar o Atendimento</Text>
           </View>
 
-          <View style={[styles.subView, { gap: 24 }]}>
+          <View style={[styles.subView, { gap: 36 }]}>
             <Input
               keyboardType="numeric"
               value={tableNumber}
@@ -28,9 +28,11 @@ export function OrderEntry() {
               onChangeText={(text) => setTicketNumber(text)}
               label="Nº Comanda"
             />
-            <Button onPress={() => {}}>Realizar pedido</Button>
-            <Divider label="ou" />
-            <Button onPress={() => {}}>Alterar mesa</Button>
+            <View style={[styles.subView, { gap: 12 }]}>
+              <Button onPress={() => {}}>Realizar pedido</Button>
+              <Divider label="ou" />
+              <Button onPress={() => {}}>Alterar mesa</Button>
+            </View>
           </View>
         </View>
       </Container>
