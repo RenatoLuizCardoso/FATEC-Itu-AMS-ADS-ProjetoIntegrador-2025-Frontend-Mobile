@@ -1,4 +1,5 @@
 import { Button, Container, Input } from '@components';
+import { TicketContext } from 'contexts';
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -7,30 +8,32 @@ export function OrderEntry() {
   const [ticketNumber, setTicketNumber] = useState('');
 
   return (
-    <Container>
-      <View style={styles.view}>
-        <View style={styles.subView}>
-          <Text style={styles.title}>Seja Bem Vindo!</Text>
-          <Text style={styles.subTitle}>Efetue seu login</Text>
-        </View>
+    <TicketContext.Provider value={{ tableNumber, ticketNumber }}>
+      <Container showNav>
+        <View style={styles.view}>
+          <View style={styles.subView}>
+            <Text style={styles.title}>Seja Bem Vindo!</Text>
+            <Text style={styles.subTitle}>Efetue seu login</Text>
+          </View>
 
-        <View style={[styles.subView, { gap: 24 }]}>
-          <Input
-            keyboardType="numeric"
-            value={tableNumber}
-            onChangeText={(text) => setTableNumber(text)}
-            label="Nº Mesa"
-          />
-          <Input
-            keyboardType="numeric"
-            value={ticketNumber}
-            onChange={() => setTicketNumber}
-            label="Nº Comanda"
-          />
-          <Button onPress={() => {}}>Acessar</Button>
+          <View style={[styles.subView, { gap: 24 }]}>
+            <Input
+              keyboardType="numeric"
+              value={tableNumber}
+              onChangeText={(text) => setTableNumber(text)}
+              label="Nº Mesa"
+            />
+            <Input
+              keyboardType="numeric"
+              value={ticketNumber}
+              onChangeText={(text) => setTicketNumber(text)}
+              label="Nº Comanda"
+            />
+            <Button onPress={() => {}}>Acessar</Button>
+          </View>
         </View>
-      </View>
-    </Container>
+      </Container>
+    </TicketContext.Provider>
   );
 }
 

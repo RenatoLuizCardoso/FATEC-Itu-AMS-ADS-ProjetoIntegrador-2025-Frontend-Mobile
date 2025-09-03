@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
 type TicketContextType = {
-  ticketId: string;
+  ticketNumber: string;
   tableNumber: string;
 };
 

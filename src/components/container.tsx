@@ -15,7 +15,7 @@ export function Container({ children, showNav }: ContainerProps) {
     <Portal.Host>
       <SafeAreaProvider style={style}>
         <SafeAreaView style={style}>
-          {showNav && <Navbar title="Comanda 40" />}
+          {showNav && <Navbar />}
           {children}
           <StatusBar style="auto" />
         </SafeAreaView>
