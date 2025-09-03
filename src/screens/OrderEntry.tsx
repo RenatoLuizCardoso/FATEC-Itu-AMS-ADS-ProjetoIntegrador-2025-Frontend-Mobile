@@ -1,5 +1,5 @@
-import { Button, Container, Input } from '@components';
-import { TicketContext } from 'contexts';
+import { Button, Container, Divider, Input } from '@components';
+import { TicketContext } from '@contexts';
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -9,11 +9,10 @@ export function OrderEntry() {
 
   return (
     <TicketContext.Provider value={{ tableNumber, ticketNumber }}>
-      <Container showNav>
+      <Container>
         <View style={styles.view}>
           <View style={styles.subView}>
-            <Text style={styles.title}>Seja Bem Vindo!</Text>
-            <Text style={styles.subTitle}>Efetue seu login</Text>
+            <Text style={styles.title}>Começar o atendimento</Text>
           </View>
 
           <View style={[styles.subView, { gap: 24 }]}>
@@ -29,7 +28,9 @@ export function OrderEntry() {
               onChangeText={(text) => setTicketNumber(text)}
               label="Nº Comanda"
             />
-            <Button onPress={() => {}}>Acessar</Button>
+            <Button onPress={() => {}}>Realizar pedido</Button>
+            <Divider label="ou" />
+            <Button onPress={() => {}}>Alterar mesa</Button>
           </View>
         </View>
       </Container>
