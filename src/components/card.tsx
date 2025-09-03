@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Card as PaperCard } from 'react-native-paper';
 
 type CardProps = {
@@ -10,7 +10,7 @@ type CardProps = {
 export function Card({ children, onPress }: CardProps) {
   return (
     <PaperCard mode="outlined" style={styles.card} onPress={onPress}>
-      <View style={styles.content}>{children}</View>
+      <PaperCard.Content style={styles.content}>{children}</PaperCard.Content>
     </PaperCard>
   );
 }
