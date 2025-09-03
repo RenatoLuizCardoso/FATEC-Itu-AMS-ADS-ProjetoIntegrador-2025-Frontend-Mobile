@@ -7,5 +7,6 @@ export * from './counter';
 export * from './icon';
 export * from './input';
 export * from './list-card-menu';
+export * from './modal';
 export * from './navbar';
 export * from './search-input';

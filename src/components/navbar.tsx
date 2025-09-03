@@ -1,9 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Appbar } from 'react-native-paper';
-import type { RootStackParamList } from '../routes';
-
-type NavProps = NativeStackNavigationProp<RootStackParamList>;
+import type { NavProps } from 'routes';
 
 export function Navbar({ title }: { title: string }) {
   const navigation = useNavigation<NavProps>();

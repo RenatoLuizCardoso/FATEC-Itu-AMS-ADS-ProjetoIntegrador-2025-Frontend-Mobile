@@ -2,6 +2,7 @@ import { Navbar } from '@components';
 import { StatusBar } from 'expo-status-bar';
 import type { ReactNode } from 'react';
 import { StyleSheet } from 'react-native';
+import { Portal } from 'react-native-paper';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 type ContainerProps = {
@@ -11,13 +12,15 @@ type ContainerProps = {
 
 export function Container({ children, showNav }: ContainerProps) {
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={style}>
-        {showNav && <Navbar title="Comanda 40" />}
-        {children}
-        <StatusBar style="auto" />
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <Portal.Host>
+      <SafeAreaProvider style={style}>
+        <SafeAreaView style={style}>
+          {showNav && <Navbar title="Comanda 40" />}
+          {children}
+          <StatusBar style="auto" />
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </Portal.Host>
   );
 }
 

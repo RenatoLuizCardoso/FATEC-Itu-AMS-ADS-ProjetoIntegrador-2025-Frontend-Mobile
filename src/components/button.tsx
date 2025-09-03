@@ -6,16 +6,16 @@ type ButtonProps = {
   onPress: () => void;
 };
 
-export function Button({ onPress }: ButtonProps) {
+export function Button({ onPress, children }: ButtonProps) {
   return (
     <PaperButton
       mode="contained"
       buttonColor="#6B031D"
-      onPress={() => onPress}
+      onPress={onPress}
       labelStyle={{ fontSize: 20 }}
       style={{ borderRadius: 12, width: '80%' }}
     >
-      Acessar
+      {children}
     </PaperButton>
   );
 }
