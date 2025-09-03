@@ -1,10 +1,18 @@
 import { Button, Container, Input } from '@components';
+import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { TextInput } from 'react-native-paper';
+import type { NavProps } from 'routes';
 
 export function Login() {
   const [password, setPassword] = useState('');
   const [user, setUser] = useState('');
+  const [passwordVisibility, setPasswordVisibility] = useState(true);
+
+  const navigation = useNavigation<NavProps>();
+
+  const changePasswordVisibility = () => setPasswordVisibility((prev) => !prev);
 
   return (
     <Container>
@@ -15,10 +23,24 @@ export function Login() {
         </View>
 
         <View style={[styles.subView, { gap: 24 }]}>
-          <Input value={user} onChange={() => setUser} label="Usuário" />
-          <Input value={password} onChange={() => setPassword} label="Senha" />
+          <Input
+            value={user}
+            onChangeText={(text) => setUser(text)}
+            label="Usuário"
+          />
+          <Input
+            value={password}
+            onChangeText={(text) => setPassword(text)}
+            label="Senha"
+            secureTextEntry={passwordVisibility}
+            right={
+              <TextInput.Icon icon="eye" onPress={changePasswordVisibility} />
+            }
+          />
 
-          <Button onPress={() => {}}>Acessar</Button>
+          <Button onPress={() => navigation.navigate('OrderEntry')}>
+            Acessar
+          </Button>
         </View>
       </View>
     </Container>
