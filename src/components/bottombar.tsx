@@ -13,8 +13,7 @@ export function BottomBar({ children }: BottomBarProps) {
 const styles = StyleSheet.create({
   bottom: {
     backgroundColor: 'white',
-    position: 'absolute',
-    padding: 8,
+    paddingHorizontal: 20,
     left: 0,
     right: 0,
     bottom: 0,
