@@ -1,6 +1,6 @@
 import { CategorySelector, Container, ListCardMenu } from '@components';
-import { categories, menuItems } from '@data';
-import { useRef, useState } from 'react';
+import { categories, menuItems as dataMenuItems } from '@data';
+import { useMemo, useRef, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 interface ListCardMenuHandles {
@@ -9,13 +9,16 @@ interface ListCardMenuHandles {
 
 export function WaiterMenu() {
   const [searchValue, setSearchValue] = useState('');
+  const [menuItems] = useState(dataMenuItems);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
     categories[0]?.id || null,
   );
 
-  const filteredMenuItems = menuItems.filter((item) =>
-    item.name.toLowerCase().includes(searchValue.toLowerCase()),
-  );
+  const filteredMenuItems = useMemo(() => {
+    const q = searchValue.trim().toLowerCase();
+    if (!q) return menuItems;
+    return menuItems.filter((item) => item.name.toLowerCase().includes(q));
+  }, [menuItems, searchValue]);
 
   const menuListRef = useRef<ListCardMenuHandles>(null);
 
@@ -47,12 +50,5 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     marginHorizontal: 16,
-  },
-  listContainer: {
-    flex: 1,
-    marginTop: 16,
-  },
-  listContent: {
-    gap: 16,
   },
 });

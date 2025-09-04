@@ -6,7 +6,7 @@ export function Navbar({ title }: { title: string }) {
   const navigation = useNavigation<NavProps>();
 
   return (
-    <Appbar.Header
+    <Appbar
       mode="center-aligned"
       style={{ backgroundColor: 'white', height: 56 }}
     >
@@ -21,6 +21,6 @@ export function Navbar({ title }: { title: string }) {
         icon="cart-outline"
         onPress={() => navigation.navigate('HelloWorld')}
       />
-    </Appbar.Header>
+    </Appbar>
   );
 }
