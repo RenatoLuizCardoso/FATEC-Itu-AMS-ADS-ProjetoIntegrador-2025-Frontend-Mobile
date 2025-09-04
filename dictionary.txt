@@ -1,8 +1,34 @@
+<<<<<<< head
+<<<<<<< head
+=======
+=======
+>>>>>>> b2318cc7a483f5b8c7057fe2d7a07f2bdc02258a
+>>>>>>> feature/waiter-menu
+adocante
+agua
 appbar
 bottombar
 bruschetta
+bruschetta
+burrata
+carpaccio
+chantilly
+chimichurri
+confitado
+confitados
+couting
 couting
 crocância
+crocância
+ellipsize
+entrecôte
+flatlist
 gitmoji
 kotlin
 mobileprovision
+panna
+parmesao
+portobello
+rucula
+taiti
+tartaro
