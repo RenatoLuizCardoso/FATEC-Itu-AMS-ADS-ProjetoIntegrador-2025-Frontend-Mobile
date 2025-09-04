@@ -1,48 +1,45 @@
 import { BottomBar, Card, Container, Counter, Navbar } from '@components';
+import { additions, type MenuItem } from '@data';
+import { useRoute } from '@react-navigation/native';
+import { formatCurrency } from '@utils';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Button, Divider } from 'react-native-paper';
 
 export function ItemInfo() {
+  const route = useRoute();
+  const { item } = route.params as { item: MenuItem };
+  const itemAdditionals = item.additionalIds.map((id) => additions[id]);
+
   return (
     <Container>
       <Navbar title="Comanda 40" />
 
       <ScrollView style={{ flex: 1 }}>
-        <Image
-          source={{
-            uri: 'https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?auto=format&fit=crop&q=80',
-          }}
-          style={styles.image}
-        />
+        <Image source={{ uri: item.image }} style={styles.image} />
 
         <View style={styles.content}>
           <View style={styles.headerRow}>
-            <Text style={styles.title}>Bruschetta</Text>
-            <Text style={styles.price}>R$10,50</Text>
+            <Text style={styles.title}>{item.name}</Text>
+            <Text style={styles.price}>{formatCurrency(item.price)}</Text>
           </View>
-
-          <Text style={styles.subText}>
-            Uma entrada clássica e irresistível. Começamos com fatias generosas
-            de pão italiano rústico, que são delicadamente torradas até
-            atingirem a crocância perfeita. Em seguida, cobrimos com uma mistura
-            vibrante de tomates frescos picados, alho, folhas de manjericão e um
-            fio generoso do melhor azeite de oliva extra virgem. É o sabor
-            autêntico da Itália em cada mordida.
-          </Text>
+          <Text style={styles.subText}>{item.description}</Text>
 
           <Divider style={styles.divider} />
 
           <Text style={styles.sectionTitle}>Adicionais</Text>
-
-          <Card>
-            <View>
-              <Text style={styles.addonTitle}>Leite condensado</Text>
-              <Text style={styles.subText}>R$5,00</Text>
-            </View>
-            <View>
-              <Counter />
-            </View>
-          </Card>
+          {itemAdditionals.map((addons) => (
+            <Card key={addons.id}>
+              <View>
+                <Text style={styles.addonTitle}>{addons.name}</Text>
+                <Text style={styles.subText}>
+                  {formatCurrency(addons.price)}
+                </Text>
+              </View>
+              <View>
+                <Counter />
+              </View>
+            </Card>
+          ))}
         </View>
       </ScrollView>
 

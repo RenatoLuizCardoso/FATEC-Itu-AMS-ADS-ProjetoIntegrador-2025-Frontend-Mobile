@@ -1,11 +1,10 @@
 import { CategoryBlock } from '@components';
 import type { categories, MenuItem } from '@data';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
-
-const handleItemPress = (item: MenuItem) => {
-  Alert.alert('Item Clicado', `Você selecionou: ${item.name}`);
-};
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+import type { RootStackParamList } from 'routes';
 
 interface ListCardMenuProps {
   categories: typeof categories;
@@ -20,6 +19,13 @@ type Category = (typeof categories)[number];
 
 export const ListCardMenu = forwardRef<ListCardMenuHandle, ListCardMenuProps>(
   ({ categories, menuItems }, ref) => {
+    const navigation =
+      useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+    const handleItemPress = (item: MenuItem) => {
+      navigation.navigate('ItemInfo', { item });
+    };
+
     const flatListRef = useRef<FlatList<Category>>(null);
 
     useImperativeHandle(ref, () => ({

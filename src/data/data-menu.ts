@@ -502,7 +502,7 @@ export const menuItems: MenuItem[] = [
 ];
 
 export const additions = {
-  adocante: { id: 'adocante', name: 'Adoçante', price: 0.0 },
+  adocante: { id: 'adAdocante', name: 'Adoçante', price: 0.0 },
   aguaComGas: { id: 'aguaComGas', name: 'Água com gás', price: 4.0 },
   arrozCoco: { id: 'arrozCoco', name: 'Arroz de coco', price: 6.0 },
   arrozGrega: { id: 'arrozGrega', name: 'Arroz à grega', price: 5.0 },
