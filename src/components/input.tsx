@@ -1,15 +1,21 @@
-import type { TextInputProps } from 'react-native-paper';
-import { TextInput } from 'react-native-paper';
+import { TextInput, type TextInputProps } from 'react-native-paper';
 
-export function Input({ ...props }: TextInputProps) {
+export function Input({
+  activeOutlineColor,
+  mode,
+  outlineColor,
+  outlineStyle,
+  style,
+  ...props
+}: TextInputProps) {
   return (
     <TextInput
       {...props}
-      mode="outlined"
-      outlineStyle={{ borderRadius: 12 }}
-      style={{ width: '80%' }}
-      activeOutlineColor="#6B031D"
-      outlineColor="#676767"
+      mode={mode ? mode : 'outlined'}
+      outlineStyle={[{ borderRadius: 12 }, outlineStyle]}
+      style={[{ width: '80%' }, style]}
+      activeOutlineColor={activeOutlineColor ? activeOutlineColor : '#6B031D'}
+      outlineColor={outlineColor ? outlineColor : '#676767'}
     />
   );
 }

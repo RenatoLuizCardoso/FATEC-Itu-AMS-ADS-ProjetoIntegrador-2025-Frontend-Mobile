@@ -1,20 +1,23 @@
-import type { ReactNode } from 'react';
+import type { PropsWithChildren } from 'react';
 import { StyleSheet } from 'react-native';
-import { Modal as PaperModal, Portal } from 'react-native-paper';
+import {
+  Modal as PaperModal,
+  type ModalProps as PaperModalProps,
+  Portal,
+} from 'react-native-paper';
 
-type ModalProps = {
-  children: ReactNode;
-  visible: boolean;
-  onDismiss: () => void;
-};
+type ModalProps = PropsWithChildren & PaperModalProps;
 
-export function Modal({ children, onDismiss, visible }: ModalProps) {
+export function Modal({
+  children,
+  contentContainerStyle,
+  ...props
+}: ModalProps) {
   return (
     <Portal>
       <PaperModal
-        visible={visible}
-        onDismiss={onDismiss}
-        contentContainerStyle={modal}
+        {...props}
+        contentContainerStyle={[modal, contentContainerStyle]}
       >
         {children}
       </PaperModal>
