@@ -1,4 +1,11 @@
-import { Card, Container, Counter, Navbar } from '@components';
+import {
+  BottomBar,
+  Button,
+  Card,
+  Container,
+  Counter,
+  Navbar,
+} from '@components';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { Divider } from 'react-native-paper';
 
@@ -19,6 +26,7 @@ export function ItemInfo() {
           <Text style={styles.title}>Bruschetta</Text>
           <Text style={styles.price}>R$10,50</Text>
         </View>
+
         <Text style={styles.subText}>
           Uma entrada clássica e irresistível. Começamos com fatias generosas de
           pão italiano rústico, que são delicadamente torradas até atingirem a
@@ -27,7 +35,9 @@ export function ItemInfo() {
           do melhor azeite de oliva extra virgem. É o sabor autêntico da Itália
           em cada mordida.
         </Text>
+
         <Divider style={styles.divider} />
+
         <Text style={styles.sectionTitle}>Adicionais</Text>
 
         <Card>
@@ -35,11 +45,30 @@ export function ItemInfo() {
             <Text style={styles.addonTitle}>Leite condensado</Text>
             <Text style={styles.subText}>R$5,00</Text>
           </View>
-          <View style={{ alignSelf: 'flex-end' }}>
+          <View style={styles.counterWrapper}>
             <Counter />
           </View>
         </Card>
       </View>
+
+      <BottomBar>
+        <View style={styles.bottomLeft}>
+          <Text style={styles.totalText}>
+            <Text style={styles.label}>Total=</Text>
+            R$12.000,00
+          </Text>
+          <Text style={styles.totalText}>
+            <Text style={styles.label}>Subtotal=</Text>
+            R$11.000,00
+          </Text>
+        </View>
+
+        <View style={styles.bottomRight}>
+          <Button onPress={() => {}}>
+            <Text style={styles.confirmText}>Confirmar</Text>
+          </Button>
+        </View>
+      </BottomBar>
     </Container>
   );
 }
@@ -85,6 +114,27 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '600',
     color: '#6B031D',
-    marginBottom: 10,
+    marginBottom: 8,
+  },
+  counterWrapper: {
+    alignSelf: 'flex-end',
+  },
+  bottomLeft: {
+    flex: 1,
+  },
+  bottomRight: {
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+  },
+  totalText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  label: {
+    color: '#6B031D',
+  },
+  confirmText: {
+    fontSize: 16,
   },
 });
