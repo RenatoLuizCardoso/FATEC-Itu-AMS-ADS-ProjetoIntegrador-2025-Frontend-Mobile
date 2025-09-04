@@ -39,12 +39,14 @@ export function OrderEntry() {
 
           <View style={[styles.subView, { gap: 36 }]}>
             <Input
+              style={{ width: '100%' }}
               keyboardType="numeric"
               value={tableNumber}
               onChangeText={(text) => setTableNumber(text)}
               label="Nº Mesa"
             />
             <Input
+              style={{ width: '100%' }}
               keyboardType="numeric"
               value={ticketNumber}
               onChangeText={(text) => setTicketNumber(text)}
@@ -96,6 +98,7 @@ const styles = StyleSheet.create({
     color: '#6B031D',
     fontWeight: 'bold',
     fontSize: 24,
+    textAlign: 'center',
   },
   subTitle: {
     color: '#676767',
@@ -104,11 +107,10 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 48,
     justifyContent: 'center',
-    alignItems: 'center',
+    padding: '10%',
   },
   subView: {
     display: 'flex',
-    alignItems: 'center',
     width: '100%',
   },
   button: {
