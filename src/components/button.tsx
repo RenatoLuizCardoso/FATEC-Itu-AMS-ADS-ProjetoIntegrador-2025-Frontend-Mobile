@@ -13,15 +13,8 @@ export function Button({
       {...props}
       textColor={mode ? '#6B031D' : textColor}
       buttonColor={mode === 'text' ? '' : buttonColor ? buttonColor : '#6B031D'}
-      labelStyle={[
-        {
-          fontSize: 20,
-          textDecorationLine: 'underline',
-          textDecorationColor: '#6B031D',
-        },
-        labelStyle,
-      ]}
-      style={[{ borderRadius: 12, width: '80%' }, style]}
+      labelStyle={[{ fontSize: 20 }, labelStyle]}
+      style={[{ borderRadius: 12, width: '100%' }, style]}
       mode={mode ? mode : 'contained'}
     />
   );

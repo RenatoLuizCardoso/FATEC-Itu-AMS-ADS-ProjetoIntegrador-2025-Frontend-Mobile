@@ -58,6 +58,7 @@ export function OrderEntry() {
               </Button>
               <Button
                 mode="text"
+                labelStyle={{ textDecorationLine: 'underline' }}
                 onPress={handleLogOut}
                 style={{ width: 'auto' }}
               >
