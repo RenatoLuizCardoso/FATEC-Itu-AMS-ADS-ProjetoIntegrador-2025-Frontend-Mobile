@@ -3,8 +3,12 @@ import type { categories, MenuItem } from '@data';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
 import type { RootStackParamList } from 'routes';
+        
+const handleItemPress = (item: MenuItem) => {
+  Alert.alert('Item Clicado', `Você selecionou: ${item.name}`);
+};
 
 interface ListCardMenuProps {
   categories: typeof categories;
