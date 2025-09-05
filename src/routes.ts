@@ -5,6 +5,7 @@ export type RootStackParamList = {
   HelloWorld: undefined;
   Login: undefined;
   ItemInfo: { item: MenuItem };
+  ItemRemovable: { item: MenuItem };
   Menu: undefined;
   OrderEntry: undefined;
 };

@@ -1,7 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { HelloWorld, ItemInfo, Login, OrderEntry, WaiterMenu } from '@screens';
-import type { RootStackParamList } from 'routes';
+import {
+  HelloWorld,
+  ItemInfo,
+  ItemRemovable,
+  Login,
+  OrderEntry,
+  WaiterMenu,
+} from '@screens';
+import type { RootStackParamList } from './routes';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -13,10 +20,11 @@ export function App() {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="OrderEntry" component={OrderEntry} />
-        <Stack.Screen name="Menu" component={WaiterMenu} />
-        <Stack.Screen name="ItemInfo" component={ItemInfo} />
         <Stack.Screen name="HelloWorld" component={HelloWorld} />
+        <Stack.Screen name="ItemInfo" component={ItemInfo} />
+        <Stack.Screen name="OrderEntry" component={OrderEntry} />
+        <Stack.Screen name="ItemRemovable" component={ItemRemovable} />
+        <Stack.Screen name="Menu" component={WaiterMenu} />
       </Stack.Navigator>
     </NavigationContainer>
   );
