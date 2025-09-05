@@ -74,7 +74,7 @@ export function ItemInfo() {
             labelStyle={{ fontSize: 16 }}
             style={{ borderRadius: 12 }}
           >
-            Confirmar
+            Modificar Itens
           </Button>
         </View>
       </BottomBar>
