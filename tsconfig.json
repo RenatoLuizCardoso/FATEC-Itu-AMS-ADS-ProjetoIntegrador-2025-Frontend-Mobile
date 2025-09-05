@@ -13,7 +13,13 @@
       "@components": ["components/"],
       "@components/*": ["components/*"],
       "@screens": ["screens/"],
-      "@screens/*": ["screens/*"]
+      "@screens/*": ["screens/*"],
+      "@data": ["data/"],
+      "@data/*": ["data/*"],
+      "@utils": ["utils/"],
+      "@utils/*": ["utils/*"],
+      "@contexts": ["contexts/"],
+      "@contexts/*": ["contexts/*"]
     }
   }
 }

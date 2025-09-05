@@ -1,9 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
+import { TicketContext } from 'contexts';
+import { useContext } from 'react';
 import { Appbar } from 'react-native-paper';
 import type { NavProps } from 'routes';
 
-export function Navbar({ title }: { title: string }) {
+export function Navbar() {
   const navigation = useNavigation<NavProps>();
+  const context = useContext(TicketContext);
 
   return (
     <Appbar
@@ -15,7 +18,10 @@ export function Navbar({ title }: { title: string }) {
         icon="arrow-left"
         onPress={() => navigation.goBack()}
       />
-      <Appbar.Content title={title} />
+      <Appbar.Content
+        title={`Comanda ${context.ticketNumber}`}
+        titleStyle={{ textAlign: 'center', fontWeight: 'bold', fontSize: 24 }}
+      />
       <Appbar.Action
         color="#6B031D"
         icon="cart-outline"
