@@ -17,7 +17,9 @@
       "@data": ["data/"],
       "@data/*": ["data/*"],
       "@utils": ["utils/"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@contexts": ["contexts/"],
+      "@contexts/*": ["contexts/*"]
     }
   }
 }
