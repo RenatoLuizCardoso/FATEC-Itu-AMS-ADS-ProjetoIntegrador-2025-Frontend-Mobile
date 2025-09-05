@@ -38,7 +38,10 @@ export function Login() {
             }
           />
 
-          <Button onPress={() => navigation.navigate('OrderEntry')}>
+          <Button
+            style={{ width: '80%' }}
+            onPress={() => navigation.navigate('OrderEntry')}
+          >
             Acessar
           </Button>
         </View>
