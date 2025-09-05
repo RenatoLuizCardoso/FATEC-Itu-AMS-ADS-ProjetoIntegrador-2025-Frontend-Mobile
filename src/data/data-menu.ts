@@ -1,4 +1,5 @@
 export type AdditionId = keyof typeof additions;
+export type RemovableId = keyof typeof removables;
 
 export type MenuItem = {
   id: number;
@@ -10,6 +11,7 @@ export type MenuItem = {
   categoryId: string;
   subCategoryId: string | null;
   additionalIds: AdditionId[];
+  removableIds: RemovableId[];
 };
 
 export interface SubCategory {
@@ -91,6 +93,7 @@ export const menuItems: MenuItem[] = [
       'molhoPesto',
       'pimentaCalabresa',
     ],
+    removableIds: ['tomate', 'alho', 'ervas'],
   },
   {
     id: 2,
@@ -110,6 +113,7 @@ export const menuItems: MenuItem[] = [
       'queijoParmesao',
       'tomateSeco',
     ],
+    removableIds: ['tomate', 'queijo', 'rucula'],
   },
   {
     id: 3,
@@ -123,6 +127,7 @@ export const menuItems: MenuItem[] = [
     categoryId: 'entradas',
     subCategoryId: 'petiscos',
     additionalIds: ['queijoParmesao', 'rucula', 'azeitonasPretas'],
+    removableIds: ['queijo', 'ervas'],
   },
   {
     id: 4,
@@ -136,6 +141,7 @@ export const menuItems: MenuItem[] = [
     categoryId: 'entradas',
     subCategoryId: 'petiscos',
     additionalIds: ['molhoPesto', 'ervasFrescas'],
+    removableIds: ['ervas'],
   },
   {
     id: 5,
@@ -149,6 +155,7 @@ export const menuItems: MenuItem[] = [
     categoryId: 'frutos-do-mar',
     subCategoryId: 'peixes',
     additionalIds: ['molhoTartaro', 'arrozCoco', 'pureBatata', 'legumesExtras'],
+    removableIds: ['molho', 'ervas', 'legumes'],
   },
   {
     id: 6,
@@ -162,6 +169,7 @@ export const menuItems: MenuItem[] = [
     categoryId: 'frutos-do-mar',
     subCategoryId: 'mariscos',
     additionalIds: ['arrozCoco', 'azeitonasVerdes', 'legumesExtras'],
+    removableIds: ['alho', 'ervas'],
   },
   {
     id: 7,
@@ -175,6 +183,7 @@ export const menuItems: MenuItem[] = [
     categoryId: 'frutos-do-mar',
     subCategoryId: 'mariscos',
     additionalIds: ['molhoTartaro', 'rucula', 'molhoExtra'],
+    removableIds: ['molho', 'rucula'],
   },
   {
     id: 8,
@@ -193,6 +202,7 @@ export const menuItems: MenuItem[] = [
       'legumesAssados',
       'farofaBacon',
     ],
+    removableIds: ['molho', 'trufas', 'ervas'],
   },
   {
     id: 9,
@@ -206,6 +216,7 @@ export const menuItems: MenuItem[] = [
     categoryId: 'pratos-principais',
     subCategoryId: 'carnes',
     additionalIds: ['pureBatata', 'legumesAssados', 'farofaBacon'],
+    removableIds: ['molho', 'ervas'],
   },
   {
     id: 10,
@@ -219,6 +230,7 @@ export const menuItems: MenuItem[] = [
     categoryId: 'pratos-principais',
     subCategoryId: 'risotos',
     additionalIds: ['queijoParmesao', 'ervasFrescas'],
+    removableIds: ['queijo', 'ervas'],
   },
   {
     id: 11,
@@ -232,6 +244,7 @@ export const menuItems: MenuItem[] = [
     categoryId: 'pratos-principais',
     subCategoryId: 'aves',
     additionalIds: ['pureBatataDoce', 'legumesAssados', 'arrozGrega'],
+    removableIds: ['ervas', 'legumes'],
   },
   {
     id: 12,
@@ -250,6 +263,7 @@ export const menuItems: MenuItem[] = [
       'ervasFrescas',
       'azeiteTrufado',
     ],
+    removableIds: ['tomate', 'queijo', 'ervas'],
   },
   {
     id: 13,
@@ -263,6 +277,7 @@ export const menuItems: MenuItem[] = [
     categoryId: 'massas',
     subCategoryId: null,
     additionalIds: ['queijoParmesao', 'molhoExtra', 'ervasFrescas'],
+    removableIds: ['molho', 'queijo', 'ervas'],
   },
   {
     id: 14,
@@ -276,13 +291,13 @@ export const menuItems: MenuItem[] = [
     categoryId: 'massas',
     subCategoryId: null,
     additionalIds: ['queijoParmesao', 'molhoBranco', 'azeiteTrufado'],
+    removableIds: ['queijo', 'molho'],
   },
   {
     id: 15,
     name: 'Bolo de Chocolate Vulcão',
     shortDescription: 'Bolo quente com centro cremoso',
-    description:
-      'Prepare-se para uma erupção de sabor. Este bolinho individual de chocolate intenso é assado na hora, resultando em uma casquinha macia por fora e um interior líquido e cremoso que escorre ao primeiro toque. Servido quente, o contraste com uma bola de sorvete de creme gelado cria uma experiência inesquecível.',
+    description: 'Prepare-se para uma erupção de sabor...',
     price: 12.0,
     image:
       'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&q=80',
@@ -295,118 +310,116 @@ export const menuItems: MenuItem[] = [
       'chantilly',
       'raspasChocolate',
     ],
+    removableIds: ['chocolate', 'calda', 'ovo'],
   },
   {
     id: 16,
     name: 'Tiramisu',
     shortDescription: 'Sobremesa italiana clássica',
-    description:
-      'A sobremesa italiana mais amada, em sua versão autêntica. Delicadas camadas de biscoitos de champanhe são embebidas em café expresso e intercaladas com um creme aveludado de queijo mascarpone. A finalização com uma generosa camada de cacau em pó amargo equilibra a doçura e adiciona um toque de sofisticação.',
+    description: 'A sobremesa italiana mais amada...',
     price: 14.0,
     image:
       'https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480_1_5x/img/recipe/ras/Assets/6BE1C69C-69FB-4957-96EA-D76159076661/Derivates/BA406212-38AE-4EA0-B4D5-591514C21C2D.jpg',
     categoryId: 'sobremesas',
     subCategoryId: null,
     additionalIds: ['chantilly', 'raspasChocolate'],
+    removableIds: ['chocolate'],
   },
   {
     id: 17,
     name: 'Cheesecake de Morango',
     shortDescription: 'Cremoso com calda de morango',
-    description:
-      'Nossa cheesecake tem uma base crocante de biscoito que sustenta um recheio incrivelmente cremoso à base de cream cheese. O doce é assado lentamente para garantir uma textura perfeita e coberto com uma generosa calda caseira de morangos frescos, que traz o equilíbrio ideal de doçura e acidez.',
+    description: 'Nossa cheesecake tem uma base crocante...',
     price: 13.5,
     image:
       'https://i.pinimg.com/1200x/8b/c4/e6/8bc4e6c9daa778c290fdb1722b6eb420.jpg',
     categoryId: 'sobremesas',
     subCategoryId: null,
     additionalIds: ['caldaMorango', 'chantilly'],
+    removableIds: ['calda'],
   },
   {
     id: 18,
     name: 'Coca-Cola',
     shortDescription: 'Lata gelada 350ml',
-    description:
-      'O sabor inconfundível que acompanha momentos especiais. Desfrute de uma lata de 350ml da Coca-Cola Original, servida bem gelada para refrescar e complementar perfeitamente qualquer um dos nossos pratos. A bebida ideal para quem busca o clássico e amado sabor do refrigerante mais famoso do mundo.',
+    description: 'O sabor inconfundível...',
     price: 6.0,
     image: 'https://jpimg.com.br/uploads/2022/03/000_9zn3lb.jpg',
     categoryId: 'bebidas',
     subCategoryId: 'refrigerantes',
     additionalIds: [],
+    removableIds: [],
   },
   {
     id: 19,
     name: 'Suco de Laranja',
     shortDescription: 'Natural espremido na hora',
-    description:
-      'Pura vitamina e frescor em um copo. Nosso suco de laranja é preparado na hora, utilizando laranjas frescas e selecionadas, espremidas minutos antes de chegar à sua mesa. Sem adição de açúcar ou conservantes, é a forma mais natural e deliciosa de se refrescar.',
+    description: 'Pura vitamina e frescor...',
     price: 8.0,
     image:
       'https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&q=80',
     categoryId: 'bebidas',
     subCategoryId: 'sucos',
     additionalIds: [],
+    removableIds: [],
   },
   {
     id: 20,
     name: 'Água com Gás',
     shortDescription: 'Garrafa 500ml',
-    description:
-      'A escolha perfeita para purificar o paladar e acompanhar sua refeição. Servimos uma garrafa de 500ml de água mineral de alta qualidade, com uma gaseificação equilibrada que refresca e ajuda a realçar os sabores dos pratos. Ideal para quem busca uma bebida leve e sem calorias.',
+    description: 'A escolha perfeita...',
     price: 4.0,
     image:
       'https://s2-receitas.glbimg.com/32CCRFrcIh4_QHAROTnyg9E8nzg=/0x0:1000x673/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2023/l/c/Dru9B2SZSxiPS7XjUgBw/agua-com-gas-hidrata-faz-mal-nutricionista-esclarece.jpg',
     categoryId: 'bebidas',
     subCategoryId: 'agua',
     additionalIds: [],
+    removableIds: [],
   },
   {
     id: 21,
     name: 'Burrata ao Pesto',
     shortDescription: 'Cremosa com pesto e tomate cereja',
-    description:
-      'Uma generosa porção de queijo burrata fresco e cremoso, servida sobre uma cama de rúcula, regada com molho pesto de manjericão artesanal e finalizada com tomates cereja confitados e torradas crocantes.',
+    description: 'Uma generosa porção de queijo burrata...',
     price: 29.0,
     image:
       'https://delicious.com.br/wp-content/uploads/2020/12/a29a1485-c8b4-42f9-9429-ba8241401b4b.jpg',
     categoryId: 'entradas',
     subCategoryId: 'petiscos',
     additionalIds: ['paoExtra', 'tomateSeco', 'molhoPesto'],
+    removableIds: ['queijo', 'rucula', 'tomate', 'molho'],
   },
   {
     id: 22,
     name: 'Dadinhos de Tapioca',
     shortDescription: 'Crocantes com queijo coalho',
-    description:
-      'Clássico da culinária brasileira, nossos dadinhos de tapioca granulada com queijo coalho são fritos até ficarem dourados e crocantes por fora, mantendo a maciez por dentro. Acompanha uma deliciosa geleia de pimenta agridoce.',
+    description: 'Clássico da culinária brasileira...',
     price: 16.5,
     image:
       'https://s2-receitas.glbimg.com/D4BgwlmmJDWtjPxG4T9_8OwGPGY=/0x0:1080x608/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2022/J/7/Gj5zz6SmOaY3jRJ1z9mQ/capa-materia-gshow-16-.png',
     categoryId: 'entradas',
     subCategoryId: 'petiscos',
     additionalIds: ['geleiaExtra', 'mel'],
+    removableIds: ['queijo', 'molho'],
   },
-
   {
     id: 23,
     name: 'Polvo Grelhado com Batatas',
     shortDescription: 'Tentáculos macios com batatas',
-    description:
-      'Tentáculos de polvo cozidos à perfeição para garantir a maciez e depois grelhados com azeite e páprica, resultando em um sabor defumado. Servido com batatas ao murro, alho confitado e azeitonas pretas.',
+    description: 'Tentáculos de polvo cozidos...',
     price: 42.0,
     image:
       'https://storage.googleapis.com/imagens_videos_gou_cooking_prod/production/mesas/2020/10/5605a459-polvo-no-alho-com-batatas-coradas-_-tm-camarao-polvo-lula-_-heleninha-drumond-_-alta1.jpg',
     categoryId: 'frutos-do-mar',
     subCategoryId: 'mariscos',
     additionalIds: ['azeitonasPretas', 'legumesExtras', 'paoExtra'],
+    removableIds: ['alho', 'azeitonas', 'legumes'],
   },
-
   {
     id: 24,
     name: 'Bife Ancho Grelhado',
     shortDescription: 'Corte nobre com chimichurri',
-    description:
-      'Um corte nobre e suculento de 300g de Bife Ancho (entrecôte), grelhado na brasa ao ponto de sua preferência. Acompanha batatas rústicas douradas e um autêntico molho chimichurri argentino para realçar o sabor.',
+    description: 'Um corte nobre e suculento...',
     price: 38.5,
     image:
       'https://www.minhareceita.com.br/app/uploads/2024/05/mobile-Bife-ancho-com-pure-de-batatas.jpg',
@@ -418,91 +431,89 @@ export const menuItems: MenuItem[] = [
       'legumesAssados',
       'ovoFrito',
     ],
+    removableIds: ['molho', 'bacon', 'legumes', 'ovo'],
   },
   {
     id: 25,
     name: 'Risoto de Camarão com Limão Siciliano',
     shortDescription: 'Cremoso com camarões e toque cítrico',
-    description:
-      'Um risoto vibrante, preparado com arroz arbóreo, camarões frescos salteados, e o toque refrescante de raspas e suco de limão siciliano. Finalizado com manteiga e parmesão para máxima cremosidade.',
+    description: 'Um risoto vibrante...',
     price: 34.0,
     image: 'https://www.revistagula.com.br/uploads/CAA05790.jpg',
     categoryId: 'pratos-principais',
     subCategoryId: 'risotos',
     additionalIds: ['queijoParmesao', 'pimentaCalabresa', 'ervasFrescas'],
+    removableIds: ['queijo', 'pimenta', 'ervas'],
   },
-
   {
     id: 26,
     name: 'Lasanha à Bolonhesa',
     shortDescription: 'Clássica lasanha gratinada',
-    description:
-      'Uma porção generosa da nossa lasanha caseira, com camadas de massa fresca, um rico molho à bolonhesa, molho bechamel cremoso e queijo mussarela. Gratinada no forno até dourar para uma casquinha irresistível.',
+    description: 'Uma porção generosa da nossa lasanha caseira...',
     price: 26.5,
     image:
       'https://moinhoglobo.com.br/wp-content/uploads/2018/07/LASANHA-DESTAQUE-1.jpg',
     categoryId: 'massas',
     subCategoryId: null,
     additionalIds: ['queijoParmesao', 'molhoExtra'],
+    removableIds: ['queijo', 'molho'],
   },
   {
     id: 27,
     name: 'Gnocchi ao Molho de Gorgonzola',
     shortDescription: 'Massa de batata com molho cremoso',
-    description:
-      'Nhoque de batata artesanal, macio e que derrete na boca, envolto em um molho aveludado e potente de queijo gorgonzola. Para equilibrar, o prato é finalizado com nozes crocantes salpicadas por cima.',
+    description: 'Nhoque de batata artesanal...',
     price: 28.0,
     image:
       'https://massasaojudas.com.br/wp-content/uploads/2020/05/Nhoque_gorgonzola-1024x1024.png',
     categoryId: 'massas',
     subCategoryId: null,
     additionalIds: ['nozes', 'queijoParmesao', 'azeiteTrufado'],
+    removableIds: ['queijo', 'nozes', 'trufas'],
   },
-
   {
     id: 28,
     name: 'Panna Cotta com Frutas Vermelhas',
     shortDescription: 'Doce italiano com calda',
-    description:
-      'Uma sobremesa clássica, delicada e elegante. Feita com creme de leite fresco, resulta em uma textura sedosa. É servida gelada com uma calda artesanal de frutas vermelhas que adiciona um contraste azedinho e doce.',
+    description: 'Uma sobremesa clássica...',
     price: 15.0,
     image:
       'https://storage.googleapis.com/imagens_videos_gou_cooking_prod/production/cooking/4LTIRaZr18LKdMHxjNTE09T8B32enzlT7y7Q9hGn.jpeg',
     categoryId: 'sobremesas',
     subCategoryId: null,
     additionalIds: ['caldaMorango', 'chantilly'],
+    removableIds: ['calda'],
   },
-
   {
     id: 29,
     name: 'Caipirinha de Limão',
     shortDescription: 'Clássica com cachaça, limão e açúcar',
-    description:
-      'O drink mais famoso do Brasil em sua versão mais tradicional. Preparada com cachaça de qualidade, limão taiti fresco macerado com açúcar e muito gelo. Refrescante, potente e a cara do Brasil.',
+    description: 'O drink mais famoso do Brasil...',
     price: 14.5,
     image:
       'https://i.panelinha.com.br/i1/bk-8730-blog-caipirinha-de-limao.webp',
     categoryId: 'bebidas',
     subCategoryId: 'drinks',
     additionalIds: ['adocante', 'frutaExtra'],
+    removableIds: [],
   },
   {
     id: 30,
     name: 'Cerveja Heineken Long Neck',
     shortDescription: 'Garrafa 330ml',
-    description:
-      'Aprecie a mundialmente famosa Heineken, uma lager premium com sabor puro e refrescante, reconhecida por sua icônica garrafa verde. Servida perfeitamente gelada para o seu brinde.',
+    description: 'Aprecie a mundialmente famosa Heineken...',
     price: 9.0,
     image:
       'https://zaffari.vtexassets.com/arquivos/ids/251014-800-450?v=638554610864900000&width=800&height=450&aspect=true',
     categoryId: 'bebidas',
     subCategoryId: 'cervejas',
     additionalIds: [],
+    removableIds: [],
   },
 ];
 
 export const additions = {
-  adocante: { id: 'adocante', name: 'Adoçante', price: 0.0 },
+  adocante: { id: 'adAdocante', name: 'Adoçante', price: 0.0 },
   aguaComGas: { id: 'aguaComGas', name: 'Água com gás', price: 4.0 },
   arrozCoco: { id: 'arrozCoco', name: 'Arroz de coco', price: 6.0 },
   arrozGrega: { id: 'arrozGrega', name: 'Arroz à grega', price: 5.0 },
@@ -572,4 +583,23 @@ export const additions = {
     price: 8.0,
   },
   tomateSeco: { id: 'tomateSeco', name: 'Tomate seco', price: 4.0 },
+};
+
+export const removables = {
+  tomate: { id: 'tomate', name: 'Tomate', removable: true },
+  cebola: { id: 'cebola', name: 'Cebola', removable: true },
+  pimenta: { id: 'pimenta', name: 'Pimenta', removable: true },
+  azeitonas: { id: 'azeitonas', name: 'Azeitonas', removable: true },
+  queijo: { id: 'queijo', name: 'Queijo', removable: true },
+  rucula: { id: 'rucula', name: 'Rúcula', removable: true },
+  molho: { id: 'molho', name: 'Molho', removable: true },
+  alho: { id: 'alho', name: 'Alho', removable: true },
+  ervas: { id: 'ervas', name: 'Ervas', removable: true },
+  bacon: { id: 'bacon', name: 'Bacon', removable: true },
+  legumes: { id: 'legumes', name: 'Legumes', removable: true },
+  trufas: { id: 'trufas', name: 'Trufas', removable: true },
+  chocolate: { id: 'chocolate', name: 'Chocolate', removable: true },
+  calda: { id: 'calda', name: 'Calda', removable: true },
+  ovo: { id: 'ovo', name: 'Ovo', removable: true },
+  nozes: { id: 'nozes', name: 'Nozes', removable: true },
 };

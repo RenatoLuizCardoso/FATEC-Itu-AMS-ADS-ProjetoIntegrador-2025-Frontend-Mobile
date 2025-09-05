@@ -1,14 +1,27 @@
 import { BottomBar, Card, Container, Counter, Navbar } from '@components';
 import { additions, type MenuItem } from '@data';
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { formatCurrency } from '@utils';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Button, Divider } from 'react-native-paper';
+import type { RootStackParamList } from 'routes';
 
 export function ItemInfo() {
   const route = useRoute();
   const { item } = route.params as { item: MenuItem };
   const itemAdditionals = item.additionalIds.map((id) => additions[id]);
+
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  const handleConfirm = () => {
+    if (item.removableIds && item.removableIds.length > 0) {
+      navigation.navigate('ItemRemovable', { item });
+    } else {
+      navigation.navigate('Menu');
+    }
+  };
 
   return (
     <Container>
@@ -57,11 +70,11 @@ export function ItemInfo() {
           <Button
             mode="contained"
             buttonColor="#6B031D"
-            onPress={() => {}}
+            onPress={handleConfirm}
             labelStyle={{ fontSize: 16 }}
             style={{ borderRadius: 12 }}
           >
-            Confirmar
+            Modificar Itens
           </Button>
         </View>
       </BottomBar>
