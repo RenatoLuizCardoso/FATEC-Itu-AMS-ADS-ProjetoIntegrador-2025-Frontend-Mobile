@@ -70,7 +70,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
   },
-  button: {
-    backgroundColor: '#6B031D',
-  },
 });

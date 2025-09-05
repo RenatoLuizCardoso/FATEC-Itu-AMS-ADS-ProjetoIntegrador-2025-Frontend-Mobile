@@ -1,3 +1,4 @@
+additionals
 adocante
 agua
 appbar
@@ -14,7 +15,6 @@ crocância
 ellipsize
 entrecôte
 flatlist
-couting
 gitmoji
 kotlin
 mobileprovision

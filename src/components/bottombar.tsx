@@ -7,16 +7,17 @@ type BottomBarProps = {
 };
 
 export function BottomBar({ children }: BottomBarProps) {
-  return <Appbar.Header style={styles.bottom}>{children}</Appbar.Header>;
+  return <Appbar style={styles.bottom}>{children}</Appbar>;
 }
 
 const styles = StyleSheet.create({
   bottom: {
     backgroundColor: 'white',
-    position: 'absolute',
-    padding: 0,
+    paddingHorizontal: 20,
     left: 0,
     right: 0,
     bottom: 0,
+    borderTopWidth: 1,
+    borderTopColor: '#ccc',
   },
 });
