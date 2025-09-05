@@ -9,7 +9,7 @@ export function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="ItemInfo"
+        initialRouteName="Login"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Login" component={Login} />
