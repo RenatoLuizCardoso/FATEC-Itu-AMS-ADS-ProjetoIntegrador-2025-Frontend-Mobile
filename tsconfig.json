@@ -13,7 +13,9 @@
       "@components": ["components/"],
       "@components/*": ["components/*"],
       "@screens": ["screens/"],
-      "@screens/*": ["screens/*"]
+      "@screens/*": ["screens/*"],
+      "@contexts": ["contexts/"],
+      "@contexts/*": ["contexts/*"]
     }
   }
 }
