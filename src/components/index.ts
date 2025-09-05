@@ -8,6 +8,7 @@ export * from './category-selector';
 export * from './container';
 export * from './container';
 export * from './counter';
+export * from './container';
 export * from './counter';
 export * from './divider';
 export * from './icon';
