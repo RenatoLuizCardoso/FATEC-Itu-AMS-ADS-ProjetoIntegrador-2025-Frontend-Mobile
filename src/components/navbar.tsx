@@ -9,9 +9,11 @@ export function Navbar() {
   const context = useContext(TicketContext);
 
   return (
-    <Appbar.Header>
+    <Appbar
+      mode="center-aligned"
+      style={{ backgroundColor: 'white', height: 56 }}
+    >
       <Appbar.Action
-        size={32}
         color="#6B031D"
         icon="arrow-left"
         onPress={() => navigation.goBack()}
@@ -21,11 +23,10 @@ export function Navbar() {
         titleStyle={{ textAlign: 'center', fontWeight: 'bold', fontSize: 24 }}
       />
       <Appbar.Action
-        size={32}
         color="#6B031D"
         icon="cart-outline"
         onPress={() => navigation.navigate('HelloWorld')}
       />
-    </Appbar.Header>
+    </Appbar>
   );
 }

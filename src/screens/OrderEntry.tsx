@@ -53,7 +53,13 @@ export function OrderEntry() {
               label="Nº Comanda"
             />
             <View style={[styles.subView, { gap: 12 }]}>
-              <Button onPress={() => {}}>Realizar pedido</Button>
+              <Button
+                onPress={() => {
+                  navigation.navigate('Menu');
+                }}
+              >
+                Realizar pedido
+              </Button>
               <Divider label="ou" />
               <Button onPress={handleChangeModalVisibility}>
                 Alterar mesa
